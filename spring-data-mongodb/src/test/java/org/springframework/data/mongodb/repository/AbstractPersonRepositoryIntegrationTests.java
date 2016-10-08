@@ -65,6 +65,7 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @author Thomas Darimont
  * @author Christoph Strobl
  * @author Mark Paluch
+ * @author Martin Macko
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 public abstract class AbstractPersonRepositoryIntegrationTests {
@@ -202,9 +203,9 @@ public abstract class AbstractPersonRepositoryIntegrationTests {
 	@Test
 	public void findsPersonInAgeRangeCorrectly() throws Exception {
 
-		List<Person> result = repository.findByAgeBetween(40, 45);
-		assertThat(result.size(), is(2));
-		assertThat(result, hasItems(dave, leroi));
+		List<Person> result = repository.findByAgeBetween(41, 49);
+		assertThat(result.size(), is(4));
+		assertThat(result, hasItems(dave, leroi, boyd, carter));
 	}
 
 	@Test
